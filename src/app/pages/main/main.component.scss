@@ -1,0 +1,17 @@
+h1 {
+    font-size: 4rem;
+}
+
+.glossary {
+    font-size: 2rem;
+    padding-left: 50px;
+
+    .li-content {
+        display: flex;
+        align-items: center;
+
+        .section-title {
+            margin-right: 10px;
+        }
+    }
+}

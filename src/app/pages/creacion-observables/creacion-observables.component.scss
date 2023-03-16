@@ -1,0 +1,27 @@
+#log-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    width: 50px;
+    height: 50px;
+
+    div {
+        width: 100%;
+    }
+}
+
+#log-container-2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    border: 1px solid black;
+    width: 50px;
+    height: 80px;
+
+    div {
+        width: 100%;
+    }
+}
