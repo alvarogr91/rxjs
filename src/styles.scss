@@ -4,5 +4,15 @@
 
     .section-content {
         padding-left: 30px;
+        
+        .examples-area {
+            display: flex;
+            justify-content: start;
+            margin-top: 35px;
+
+            div {
+                margin-right: 50px;
+            }
+        }
     }
 }

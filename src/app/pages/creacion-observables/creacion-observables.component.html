@@ -2,12 +2,83 @@
 <section class="studying-sections">
     <h2>1.- La función Create</h2>
     <div class="section-content">
-        <div id="log-container"></div>  
+        <div #displayLog></div>
     </div>
 </section>
 <section class="studying-sections">
     <h2>2.- Suscripciones y observadores</h2>
     <div class="section-content">
-        <div id="log-container-2"></div>  
+        <div #displayLog></div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>3.- La función <strong>from()</strong></h2>
+    <div class="section-content">
+        <p>
+            La función <strong>from()</strong> de RxJS permite crear Observables a partir de Arrays, iteradores y
+            promesas.
+        </p>
+        <p>
+            Mientras que las promises solo permiten emitir un único evento (el texto se muestra completo de una
+            vez), los observables permiten emitir un flujo de eventos, por lo que el texto aparece letra a letra.
+        </p>
+        <p>
+            Además, los observables <strong>se pueden cancelar en cualquier momento</strong>.
+        </p>
+        <div class="examples-area">
+            <div #displayLog></div>
+            <div #displayLog></div>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>4.- Las funciones <strong>range()</strong> y <strong>of()</strong></h2>
+    <div class="section-content">
+        <p>
+            La función <strong>of()</strong> permite crear una secuencia variable de objetos, incluso de distinta tipología.
+        </p>
+        <p>
+            La función <strong>range()</strong> permite crear una secuencia ordenada de números.
+        </p>
+        <div class="examples-area">
+            <div #displayLog></div>
+            <div #displayLog></div>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>5.- Las funciones <strong>interval()</strong> y <strong>timer()</strong></h2>
+    <div class="section-content">
+        <p>
+            La función <strong>interval()</strong> sirve para emitir secuencias de valores cada cierto intervalo. <br>
+            A diferencia de of() o range(), devuelve una secuencia que <strong>no acaba nunca</strong>, por lo que hay que gestionar <br>
+            el final de la secuencia desde fuera con un timeOut. Es análogo del setInterval de JavaScript.
+        </p>
+        <p>
+            La función <strong>timer()</strong> es análoga del setTimeOut de JavaScript, pero es más poderosa porque permite crear <br>
+            eventos a partir de cierto tiempo, pero también intervalos que empiezan con cierto retraso.
+        </p>
+        <div class="examples-area">
+            <div #displayLog></div>
+            <div #displayLog></div>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>6.- La función <strong>fromEvent()</strong></h2>
+    <div class="section-content">
+        <p>
+            La función <strong>fromEvent()</strong> asocia un observable a un eventTarget concreto para emitir los eventos generados por este.
+        </p>
+        <p>
+            Nos permite canalizar eventos de un elemento del DOM o de EventEmitter de NodeJS.
+        </p>
+        <div class="examples-area">
+            <button #btnAction>Click</button>
+            <div #displayLog></div>
+        </div>
     </div>
 </section>
