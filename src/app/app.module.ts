@@ -7,6 +7,7 @@ import { MainComponent } from './pages/main/main.component';
 import { CreacionObservablesComponent } from './pages/creacion-observables/creacion-observables.component';
 import { OperadoresBasicosComponent } from './pages/operadores-basicos/operadores-basicos.component';
 import { UtilidadesComponent } from './pages/utilidades/utilidades.component';
+import { OperadoresTemporalesComponent } from './pages/operadores-temporales/operadores-temporales.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { UtilidadesComponent } from './pages/utilidades/utilidades.component';
     MainComponent,
     CreacionObservablesComponent,
     OperadoresBasicosComponent,
-    UtilidadesComponent
+    UtilidadesComponent,
+    OperadoresTemporalesComponent
   ],
   imports: [
     BrowserModule,

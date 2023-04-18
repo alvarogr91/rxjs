@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren, Inject } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren, Inject, OnDestroy } from '@angular/core';
 import { distinct, distinctUntilChanged, endWith, fromEvent, map, Observable, pairwise, share, startWith, Subscription, takeWhile, tap, Subject, BehaviorSubject } from 'rxjs';
 import { RxjsLessonsService } from 'src/app/services/rxjs-lessons.service';
 import { DOCUMENT } from '@angular/common';
@@ -8,7 +8,7 @@ import { DOCUMENT } from '@angular/common';
   templateUrl: './utilidades.component.html',
   styleUrls: ['./utilidades.component.scss']
 })
-export class UtilidadesComponent implements OnInit, AfterViewInit {
+export class UtilidadesComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChildren('displayLog') displayLogs!: QueryList<ElementRef>;
   @ViewChild('grid') gridElement!: ElementRef;
   @ViewChild('progressBar') progressBar!: ElementRef;

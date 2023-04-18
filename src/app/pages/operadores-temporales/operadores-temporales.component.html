@@ -1,0 +1,69 @@
+<h1>Operadores temporales</h1>
+
+<section class="studying-sections">
+    <h2>1.- Operadores <strong>sampleTime</strong>, <strong>throttleTime</strong> y <strong>auditTime</strong></h2>
+    <div class="section-content">
+        <p>
+            En el caso de la barra de progreso, emitir valores con cada evento de scroll penaliza el rendimiento de la
+            aplicación. <br>
+            Es innecesario registrar cada pixel que nos deplazamos, por lo que conviene consultarlo solo cada cierto
+            período de tiempo.
+        </p>
+        <p>
+            El operador <strong>sampleTime</strong> emite el valor más reciente de un flujo de datos cada cierto tiempo,
+            siempre y cuando <br>
+            el flujo de datos haya admitido algún valor en el intervalo.
+        </p>
+        <p>
+            El operador <strong>auditTime</strong> espera hasta detectar un evento. En ese momento crea una ventana
+            temporal <br>
+            del tamaño que le hayamos indicado y al terminar esta ventana emite la muestra más reciente y se pone de
+            nuevo a la espera. Es muy similar a auditTime y produce un leve retraso hasta que se inicia la comprobación.
+        </p>
+        <p>
+            El operador <strong>throttleTime</strong> emite un evento en cuanto lo detecta y deja de escuchar durante la
+            <br>
+            ventana temporal que le hayamos indicado. Es útil cuando queremos dejar un tiempo de salvaguarda. Por
+            ejemplo, <br>
+            cuando escuchamos eventos de botón y no queremos procesar el doble click. No es buena idea si queremos
+            quedarnos <br>
+            con el último evento emitido.
+        </p>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>2.- Operadores <strong>delay</strong> y <strong>bufferTime</strong></h2>
+    <div class="section-content">
+        <p>
+            El operador <strong>delay</strong> introduce un retraso entre el origen de los eventos y el flujo de salida
+            del observable.
+        </p>
+        <p>
+            El operador <strong>bufferTime</strong> se dedica a acumular mestras durante un período de tiempo determinado <br>
+            y luego las emite todas juntas en un array, como si fuera un único evento. Este proceso lo repite periódicamente, independientemente <br>
+            de recibir valores de entrada o no recibirlos.
+        </p>
+        <p>
+            <strong>bufferTime</strong> también permite usar un intervalo de tiempo distinto al de la venta que utiliza para recoger <br>
+            las muestras. Es decir, podemos crear un intervalo de tiempo de un segundo pero que los resultsados que muestre correspondan <br>
+            únicamente a los primeros 50 milisegundos de ese intervalo.
+        </p>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>3.- Operador <strong>debounceTime</strong></h2>
+    <div class="section-content">
+        <p>
+            El operador <strong>debounceTime</strong> funciona como auditTime, con la diferencia de que reinicia la espera con cada <br>
+            nuevo valor recibido. Aplica un tiempo de guarda antes de emitir el valor más reciente.
+        </p>
+        <div class="examples-area">
+            <input #inputBox type="text">
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<div id="progress-bar" #progressBar [style.width.%]="progressBarWidth"></div>
+<div id="log-container"></div>
+<div id="scrollable-space"></div>
+<div id="footer">End of page</div>
