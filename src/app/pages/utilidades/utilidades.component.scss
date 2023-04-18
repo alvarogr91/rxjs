@@ -1,0 +1,25 @@
+#scrollable-space{
+    height: 4000px;
+}
+
+#log-container{
+    position: fixed;
+    top: 40px;
+    right: 20px;
+}
+
+#progress-bar {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  width: 0px;
+  height: 12px;
+  background-color: #ff3535;
+}
+
+#footer{
+    width: 100%;
+    text-align: center;
+    margin-bottom: 40px;
+}

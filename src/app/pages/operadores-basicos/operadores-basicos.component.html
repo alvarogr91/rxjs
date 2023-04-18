@@ -4,9 +4,103 @@
     <h2>1.- Operadores <strong>mapTo</strong>, <strong>map</strong> y <strong>filter</strong></h2>
     <div class="section-content">
         <p>
-            
+            [DEPRECADO] <strong>mapTo</strong> es el operador de transformación más simple que existe. Para cada evento que entra, transforma <br>
+            la salida devolviendo siempre el mismo valor.
+        </p>
+        <p>
+            <strong>map</strong> aplica una función a cada valor emitido por el observable inicial y emite los valores resultantes <br>
+            como un observable.
+        </p>
+        <p>
+            <strong>filter</strong> deja pasar solo los valores que cumplen una determinada condición. La función que le pasamos debe <br>
+            devolver true o false.
         </p>
         <div class="examples-area">
+            <div #grid class="grid"></div>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>2.- Operador <strong>tap</strong></h2>
+    <div class="section-content">
+        <p>
+            <strong>tap</strong> no modifica el flujo de datos; lo mismo que recibe es lo que emite. Pero lo que sí puede hacer <br>
+            es ejecutar acciones <strong>ajenas</strong> al string de datos.
+        </p>
+        <div class="examples-area">
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>3.- Operadores <strong>first</strong>, <strong>take</strong> y <strong>takeWhile</strong></h2>
+    <div class="section-content">
+        <p>
+            Estos operadores sirven para <strong>limitar el número de eventos</strong> que recibimos de un stream.
+        </p>
+        <p>
+            <strong>first</strong> devuelve solamente el primer evento del stream. Pero, además, se le pueden pasar <br>
+            unas condiciones concretas para dar por válido el evento, parecido a como lo haría filter.
+        </p>
+        <p>
+            El operador <strong>take</strong> sirve para indicar cuántos eventos queremos emitir antes de cerrar el stream.
+        </p>
+        <p>
+            <strong>takeWhile</strong>, en vez de emitir una cantidad concreta de eventos, emite eventos mientras se cumpla <br> 
+            una determinada condición. En cuanto deje de cumplirse dejará de emitir.
+        </p>
+        <div class="examples-area">
+            <p>First:</p>
+            <div #displayLog></div>
+            <p>Take:</p>
+            <div #displayLog></div>
+            <p>TakeWhile:</p>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>4.- Operadores <strong>last</strong>, <strong>takeLast</strong> y <strong>skip</strong></h2>
+    <div class="section-content">
+        <p>
+            Estos operadores sirven para <strong>limitar el número de eventos</strong> que recibimos de un stream.
+        </p>
+        <p>
+            <strong>last</strong> devuelve solamente el último evento del stream. Para saber que es el último, el stream <br>
+            tiene que cerrarse
+        </p>
+        <p>
+            El operador <strong>takeLast</strong> sirve para emitir los últimos X eventos.
+        </p>
+        <p>
+            <strong>skip</strong> sirve para omitir los X primeros eventos.
+        </p>
+        <div class="examples-area">
+            <p>Last:</p>
+            <div #displayLog></div>
+            <p>TakeLast:</p>
+            <div #displayLog></div>
+            <p>Skip:</p>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>5.- Operadores <strong>reduce</strong> y <strong>scan</strong></h2>
+    <div class="section-content">
+        <p>
+            <strong>reduce</strong> aplica una función a cada evento del stream de forma secuencial y solamente devuelve <br>
+            el resultado cuando se cierra el stream. Esta función es el <strong>acumulador</strong>.
+        </p>
+        <p>
+            El operador <strong>scan</strong> es similar a reduce, pero emite un evento con el valor acumulado cada vez que <br>
+            recibe un evento, sin esperar a que se cierre el stream.
+        </p>
+        <div class="examples-area">
+            <p>Reduce:</p>
+            <div #displayLog></div>
+            <p>Scan:</p>
             <div #displayLog></div>
         </div>
     </div>

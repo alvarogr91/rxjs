@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { MainComponent } from './pages/main/main.component';
 import { CreacionObservablesComponent } from './pages/creacion-observables/creacion-observables.component';
 import { OperadoresBasicosComponent } from './pages/operadores-basicos/operadores-basicos.component';
+import { UtilidadesComponent } from './pages/utilidades/utilidades.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainComponent,
     CreacionObservablesComponent,
-    OperadoresBasicosComponent
+    OperadoresBasicosComponent,
+    UtilidadesComponent
   ],
   imports: [
     BrowserModule,

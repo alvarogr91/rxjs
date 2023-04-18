@@ -5,13 +5,20 @@ h1 {
 .glossary {
     font-size: 2rem;
     padding-left: 50px;
+    li {
+        margin-bottom: 20px;
 
-    .li-content {
-        display: flex;
-        align-items: center;
+        .li-content {
+            display: flex;
+            align-items: center;
 
-        .section-title {
-            margin-right: 10px;
+            button {
+                cursor: pointer;
+            }
+    
+            .section-title {
+                margin-right: 10px;
+            }
         }
     }
 }

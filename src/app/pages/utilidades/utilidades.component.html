@@ -1,0 +1,98 @@
+<h1>Utilidades</h1>
+
+<section class="studying-sections">
+    <h2>1.- Operadores <strong>startWith</strong> y <strong>endWith</strong></h2>
+    <div class="section-content">
+        <p>
+            <strong>startWith</strong> modifica el observable para emitir determinados valores de forma previa a
+            cualquier evento observable.
+        </p>
+        <div class="examples-area">
+            <div #grid class="grid"></div>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>2.- Operadores <strong>distinct</strong> y <strong>distinctUntilChanged</strong></h2>
+    <div class="section-content">
+        <p>
+            <strong>distinct</strong> no deja pasar ningún valor que coincida con un valor ya emitido en el pasado.
+        </p>
+        <p>
+            <strong>distinctUntilChanged</strong> nos permite bloquear eventos que ocurran de manera consecutiva. Si
+            clickamos <br>
+            en una misma casilla más de una vez lo bloqueará, pero si clickamos en una segunda y volvemos a esta primera
+            lo <br>
+            mostrará de nuevo una sola vez.
+        </p>
+        <div class="examples-area">
+            <p>distinct:</p>
+            <div #displayLog></div>
+            <div #displayLog></div>
+            <p>distincUntilChanged:</p>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>3.- Operador <strong>pairwise</strong></h2>
+    <div class="section-content">
+        <p>
+            <strong>pairwise</strong> se encarga de emitir los eventos en parejas de datos consecutivos.
+        </p>
+        <div class="examples-area">
+            <p>pairwise:</p>
+            <div #displayLog></div>
+
+            <div id="progress-bar" #progressBar [style.width.%]="progressBarWidth"></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>4.- Hot & Cold observables: El operador <strong>share</strong></h2>
+    <div class="section-content">
+        <p>
+            Un <strong>cold observable</strong> es un observable que crea una instancia para cada una de las suscripciones <br>
+            que se crean. De este modo, si nos suscribimos varias veces a un mismo observable, todo el flujo de eventos se <br>
+            repetirá tantas veces como nos hayamos suscrito. Esto penaliza el rendimiento de la aplicación.
+        </p>
+        <p>
+            Un <strong>hot observable</strong> es un observable que comparte una única instancia con todas las suscripciones. <br>
+            El fujo de datos se inicia cuando el primer observador se suscribe y se cancela cuando el último de los observadores <br>
+            cancela la suscripción.
+        </p>
+        <p>
+            <strong>share</strong> convierte un cold observable ne un hot observable.
+        </p>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>5.- <strong>Subject</strong>, <strong>BehaviorSubject</strong> y los Hot Observables</h2>
+    <div class="section-content">
+        <p>
+            Un <strong>Subject</strong> es un tipo especial de observable con 3 propiedades muy útiles:
+        </p>
+        <ol>
+            <li>Permite hacer <strong>multicast</strong> de sus valores hacia varios observadores (es, por definición, un hot observable).</li>
+            <li>
+                Además de ser un observable <strong>también es un observador</strong>. Aparte de los métodos subscribe() y pipe(), también tiene <br>
+                los métodos next(), complete() y error().
+            </li>
+            <li>Actúa como un <strong>distribuidor</strong>: Emite a todos sus observadores cualquier evento que recibe como observer.</li>
+        </ol>
+        <p>
+            Un <strong>BehaviorSubject</strong> es un Subject que siempre tiene un estado. Este estado es el valor inicial que se le da en el <br>
+            constructor o el último valor emitido por el stream.
+        </p>
+        <p>
+            Se puede acceder al valor del BehaviorSubject en cualquier momento a través de su propiedad value.
+        </p>
+        <div class="examples-area">
+            <p>Subject</p>
+            <div #displayLog></div>
+            <p>BehaviorSubject:</p>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>

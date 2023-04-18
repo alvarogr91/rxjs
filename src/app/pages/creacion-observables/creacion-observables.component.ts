@@ -1,6 +1,7 @@
-import { Component, AfterViewInit, ViewChildren, QueryList, ElementRef, ViewChild, Inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, Inject, OnDestroy, OnInit, ViewChildren, QueryList } from '@angular/core';
 import { Observable, Observer, Subscription, from, of, range, interval, timer, fromEvent } from 'rxjs';
 import { DOCUMENT } from '@angular/common';
+import { RxjsLessonsService } from 'src/app/services/rxjs-lessons.service';
 
 @Component({
   selector: 'app-creacion-observables',
@@ -31,9 +32,9 @@ export class CreacionObservablesComponent implements OnInit, AfterViewInit, OnDe
     }, 2000);
   });
   observer2: Observer<any> = {
-    next: evt => this.generateDisplayLog(evt, 1),
+    next: evt => this._rxjsService.generateDisplayLog(this.displayLogs, evt, 1),
     error: err => console.error('ERROR: ', err),
-    complete: () => this.generateDisplayLog('Done!', 1)
+    complete: () => this._rxjsService.generateDisplayLog(this.displayLogs, 'Done!', 1)
   }
 
   // 3.- La función from()
@@ -67,7 +68,10 @@ export class CreacionObservablesComponent implements OnInit, AfterViewInit, OnDe
   sourceFromEvent!: Observable<MouseEvent>; // Inicializado en AfterViewInit
   sourceFromEvent2!: Observable<MouseEvent>; // Inicializado en AfterViewInit
 
-  constructor(@Inject(DOCUMENT) private readonly _document: Document) { }
+  constructor(
+    @Inject(DOCUMENT) private readonly _document: Document,
+    private readonly _rxjsService: RxjsLessonsService
+  ) { }
 
   ngOnInit(): void {
     this.subscriptions = [];
@@ -79,52 +83,45 @@ export class CreacionObservablesComponent implements OnInit, AfterViewInit, OnDe
     this.launchSubscriptions();
   }
 
-  generateDisplayLog(content: any, index: number) {
-    let element = document.createElement('div');
-    element.innerHTML = content;
-    const logContainer = this.displayLogs.toArray()[index];
-    logContainer.nativeElement.appendChild(element);
-  }
-
   launchSubscriptions(): void {
     // 1.- Función create
     this.subscriptions.push(
-      this.helloObservable.subscribe(evt => this.generateDisplayLog(evt, 0))
+      this.helloObservable.subscribe(evt => this._rxjsService.generateDisplayLog(this.displayLogs, evt, 0))
     );
 
     // 2.- Suscripciones y observadores
     const subscription2: Subscription = this.helloObservable2.subscribe(this.observer2)
     subscription2.unsubscribe();
     this.subscriptions.push(
-      subscription2, 
+      subscription2,
       this.helloObservable2.subscribe(this.observer2)
     );
 
     // 3.- La función from()
     this.subscriptions.push(
-      this.observableArrayFrom.subscribe(val => this.generateDisplayLog(val, 2)),
-      this.observableStringFrom.subscribe(val => this.generateDisplayLog(val, 3)),
-      this.observablePromiseFrom.subscribe(val => this.generateDisplayLog(val, 4))
+      this.observableArrayFrom.subscribe(val => this._rxjsService.generateDisplayLog(this.displayLogs, val, 2)),
+      this.observableStringFrom.subscribe(val => this._rxjsService.generateDisplayLog(this.displayLogs, val, 3)),
+      this.observablePromiseFrom.subscribe(val => this._rxjsService.generateDisplayLog(this.displayLogs, val, 4))
     );
 
     // 4.- Las funciones of() y range()
     this.subscriptions.push(
-      this.sourceOf.subscribe(data => this.generateDisplayLog(data, 5)),
-      this.sourceOf2.subscribe(data => this.generateDisplayLog(data, 6)),
-      this.sourceRange1.subscribe(data => this.generateDisplayLog(data, 7))
+      this.sourceOf.subscribe(data => this._rxjsService.generateDisplayLog(this.displayLogs, data, 5)),
+      this.sourceOf2.subscribe(data => this._rxjsService.generateDisplayLog(this.displayLogs, data, 6)),
+      this.sourceRange1.subscribe(data => this._rxjsService.generateDisplayLog(this.displayLogs, data, 7))
     );
 
     // 5.- Las funciones interval() y time()
-    const subscriptionInterval: Subscription = this.sourceInterval.subscribe(data => this.generateDisplayLog(data, 8));
+    const subscriptionInterval: Subscription = this.sourceInterval.subscribe(data => this._rxjsService.generateDisplayLog(this.displayLogs, data, 8));
     setTimeout(() => subscriptionInterval.unsubscribe(), 3000);
-    const subscriptionTimer: Subscription = this.sourceTimer.subscribe(data => this.generateDisplayLog(data, 9));
+    const subscriptionTimer: Subscription = this.sourceTimer.subscribe(data => this._rxjsService.generateDisplayLog(this.displayLogs, data, 9));
     timer(3000).subscribe(() => subscriptionTimer.unsubscribe());
-    const subscriptionTimer2: Subscription = this.sourceTimer2.subscribe(data => this.generateDisplayLog(`2 - ${data}`, 10));
+    const subscriptionTimer2: Subscription = this.sourceTimer2.subscribe(data => this._rxjsService.generateDisplayLog(this.displayLogs, `2 - ${data}`, 10));
     timer(6000).subscribe(() => subscriptionTimer2.unsubscribe());
 
     // 6.- La función fromEvent()
     this.subscriptions.push(
-      this.sourceFromEvent.subscribe((event: MouseEvent) => this.generateDisplayLog(`click event at pos (${event.x}, ${event.y})`, 11)),
+      this.sourceFromEvent.subscribe((event: MouseEvent) => this._rxjsService.generateDisplayLog(this.displayLogs, `click event at pos (${event.x}, ${event.y})`, 11)),
       this.sourceFromEvent2.subscribe((event: MouseEvent) => console.log(event))
     );
   }

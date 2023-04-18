@@ -1,6 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    font-family: sans-serif;
+
+    h2 {
+        font-weight: 300;
+    }
+}
 .studying-sections {
     padding-left: 50px;
+    margin-bottom: 30px;
 
     .section-content {
         padding-left: 30px;
@@ -12,6 +20,22 @@
 
             div {
                 margin-right: 50px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-wrap: wrap;
+                flex-direction: column;
+            }
+
+            p {
+                margin-right: 20px;
+            }
+
+            .grid {
+                width: 500px;
+                height: 500px;
+                border: 1px solid black;
+                background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QAAAAAAAD5Q7t/AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH4wECDC4GIBN3ygAAALRJREFUeNrt3EERACAIRUF0LED/kETACp5xXwNm519Z3d0xoKqacEbsEBABASIgQAQEiIAAERABASIgQAQEiIAAERABASIgQAQEiIAAERABASIgQAQEiIAAERABASIgQAQEiIAAERABAaLHzpRPbJlpIQICRECACIiAABEQIAICRECACIiAABEQIAICRECACIiAABEQIAICRECACIiAABEQIAICRECACIiAABEQIAICRED+6gIWHgqTCjDh1wAAAABJRU5ErkJggg==');
             }
         }
     }
