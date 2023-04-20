@@ -1,1 +1,48 @@
-<p>high-order-observables works!</p>
+<h1>High Order Observables</h1>
+
+<section class="studying-sections">
+    <h2>1.- Introducción a los HOO: <strong>mergeAll</strong>, y <strong>mergeMap</strong></h2>
+    <div class="section-content">
+        <p>
+            Los <strong>High Order Observables</strong> son observables que emiten observables.
+        </p>
+        <p>
+            <strong>mergeAll</strong> se suscribe a los observables internos y emite sus eventos como si fueran eventos del HOO.
+        </p>
+        <p>
+            <strong>mergeMap</strong> recibe una función que devuelve un observable, se suscribe a ese observable interno y emite <br>
+            sus valores a través del observable externo o HOO.
+        </p>
+        <div class="examples-area">
+            <button #button>Click me!</button>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>2.- Operadores <strong>switchMap</strong>, y <strong>concatMap</strong></h2>
+    <div class="section-content">
+        <p>
+            <strong>switchMap</strong>, cuando recibe un evento, genera un observable interno y se suscribe a él para pasarle <br>
+            sus eventos al observable externo. A diferencia de mergeMap, cuando <strong>switchMap</strong> recibe un nuevo evento <br>
+            externo cancela la suscripción del evento interno anterior antes de suscribirse a un nuevo evento interno.
+        </p>
+        <p>
+            <strong>concatMap</strong> es un operador para HOO que se suscribe a los observables internos de manera ordenada.<br>
+            Hasta que no se completen los eventos del primer observable interno no se suscribirá al segundo. Y así sucesivamente.
+        </p>
+        <div class="examples-area">
+            <button #button2>Click me!</button>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>3.- High Order Observables: de arrays a eventoc</h2>
+    <div class="section-content">
+        <div class="examples-area">
+            <button #button3>Click me!</button>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>

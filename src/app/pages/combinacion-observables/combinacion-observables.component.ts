@@ -1,5 +1,4 @@
 import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
 import { Observable, Subscription, combineLatest, concat, debounceTime, distinctUntilChanged, endWith, filter, forkJoin, fromEvent, map, mapTo, merge, scan, tap, timer, withLatestFrom, zip } from 'rxjs';
 import { RxjsLessonsService } from 'src/app/services/rxjs-lessons.service';
 
@@ -11,11 +10,6 @@ interface ICoords {
 interface IMouseEventObj {
   label: string;
   coords: ICoords
-}
-
-interface IComment {
-  id: number;
-  comment: string;
 }
 
 @Component({
@@ -168,30 +162,6 @@ export class CombinacionObservablesComponent {
     return prevState
   }
 
-  getComment(id: number): Observable<IComment> {
-    return timer(Math.random() * 1000).pipe(
-      mapTo({ id: id, comment: `comment number ${id}` })
-    );
-  }
-
-  getComments(): void {
-    const comment1$ = this.getComment(1);
-    const comment2$ = this.getComment(2);
-    const comment3$ = this.getComment(3);
-    const comment4$ = this.getComment(4);
-
-    // concat(comment1$, comment2$, comment3$, comment4$).pipe(
-    //   map(({ id, comment }) => `#${id} - ${comment}`),
-    //   endWith('--------//--------')
-    // ).subscribe(data => {
-    //   this._rxjsService.generateDisplayLog(this.displayLogs, data, 0);
-    // })
-    forkJoin(comment1$, comment2$, comment3$, comment4$).pipe(
-      map(comment => JSON.stringify(comment)),
-      endWith('--------//--------')
-    ).subscribe(data => this._rxjsService.generateDisplayLog(this.displayLogs, data, 0))
-  }
-
   launchSubscriptions(): void {
     this.subscriptions.push(
       // 1.- Funciones zip y merge
@@ -199,7 +169,7 @@ export class CombinacionObservablesComponent {
       this.drawLine$.subscribe(data => this.drawLine(data.origin, data.coords)),
 
       // 2.- Operadores concat y forkJoin
-      fromEvent<MouseEvent>(this.button.nativeElement, 'click').subscribe(this.getComments.bind(this)),
+      fromEvent<MouseEvent>(this.button.nativeElement, 'click').subscribe(this._rxjsService.getComments.bind(this)),
 
       // 3.- Los operadores combineLatest y withLatestFrom
       this.formData$.subscribe(data => this._rxjsService.generateDisplayLog(this.displayLogs, data, 1))
