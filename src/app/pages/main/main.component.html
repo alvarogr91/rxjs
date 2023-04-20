@@ -1,34 +1,10 @@
 <h1>Curso de programación con RxJS</h1>
 
 <ol class="glossary">
-    <li>
+    <li *ngFor="let data of navigationData">
         <div class="li-content">
-            <span class="section-title">Creación de observables</span>
-            <button routerLink="/creacion-observables">
-                Go!
-            </button>
-        </div>
-    </li>
-    <li>
-        <div class="li-content">
-            <span class="section-title">Operadores básicos</span>
-            <button routerLink="/operadores-basicos">
-                Go!
-            </button>
-        </div>
-    </li>
-    <li>
-        <div class="li-content">
-            <span class="section-title">Utilidades</span>
-            <button routerLink="/utilidades">
-                Go!
-            </button>
-        </div>
-    </li>
-    <li>
-        <div class="li-content">
-            <span class="section-title">Operadores temporales</span>
-            <button routerLink="/operadores-temporales">
+            <span class="section-title">{{ data.title }}</span>
+            <button [routerLink]="data.route">
                 Go!
             </button>
         </div>

@@ -3,6 +3,7 @@ import { ElementRef, Injectable, QueryList } from '@angular/core';
 @Injectable({
   providedIn: 'root'
 })
+
 export class RxjsLessonsService {
 
   constructor() { }

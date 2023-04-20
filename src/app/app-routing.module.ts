@@ -7,13 +7,17 @@ import { CreacionObservablesComponent } from './pages/creacion-observables/creac
 import { OperadoresBasicosComponent } from './pages/operadores-basicos/operadores-basicos.component';
 import { UtilidadesComponent } from './pages/utilidades/utilidades.component';
 import { OperadoresTemporalesComponent } from './pages/operadores-temporales/operadores-temporales.component';
+import { CombinacionObservablesComponent } from './pages/combinacion-observables/combinacion-observables.component';
+import { HighOrderObservablesComponent } from './pages/high-order-observables/high-order-observables.component';
 
 const routes: Routes = [
   { path: '', component: MainComponent },
   { path: 'creacion-observables', component: CreacionObservablesComponent },
   { path: 'operadores-basicos', component: OperadoresBasicosComponent },
   { path: 'utilidades', component: UtilidadesComponent },
-  { path: 'operadores-temporales', component: OperadoresTemporalesComponent }
+  { path: 'operadores-temporales', component: OperadoresTemporalesComponent },
+  { path: 'combinacion-observables', component: CombinacionObservablesComponent },
+  { path: 'high-order-observables', component: HighOrderObservablesComponent }
 ];
 
 @NgModule({

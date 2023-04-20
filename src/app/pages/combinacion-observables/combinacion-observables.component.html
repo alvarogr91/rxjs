@@ -1,0 +1,77 @@
+<h1>Combinación de observables</h1>
+
+<canvas id="drawboard" #canvas width="400" height="400"></canvas>
+
+<section class="studying-sections">
+    <h2>1.- Las funciones <strong>zip</strong>, y <strong>merge</strong></h2>
+    <div class="section-content">
+        <p>
+            La función <strong>zip</strong> combina varios flujos de datos en un único observable, que devuelve un array
+            <br>
+            con los valores de los observables de entrada por orden. Además, espera a tener un valor de cada entrada
+            para emitir <br>
+            un evento de salida.
+        </p>
+        <p>
+            La función <strong>merge</strong> entrelaza los flujos de distintos observables en un único flujo de datos.
+            A diferencia de <br>
+            <strong>zip</strong>, no espera a tener datos de todos los flujos de entrada, ni devuelve un array. Si
+            alguno de sus flujos de entrada <br>
+            emite un evento, <strong>merge</strong> lo emite en su flujo de salida.
+        </p>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>2.- Los operadores <strong>concat</strong>, y <strong>forkJoin</strong></h2>
+    <div class="section-content">
+        <p>
+            El operador <strong>concat</strong> nos permite emitir en orden los eventos de un conjunto de observables.
+            Cuando se completa <br>
+            el primer observable, entonces ejecuta la suscripción al segundo observable y así sucesivamente.
+        </p>
+        <p>
+            El operador <strong>forkJoin</strong> recibe varios observables de entrada, se espera a que se completen
+            todos y solo entonces <br>
+            emite un array ordenado con el último valor de cada flujo de datos.
+        </p>
+        <p>
+            La diferencia es que <strong>forkJoin</strong> esperará a que se emitan los 4 comentarios del ejemplo y los
+            mostrará todos juntos.
+        </p>
+        <div class="examples-area">
+            <button #button>Click</button>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>3.- Los operadores <strong>combineLatest</strong>, y <strong>withLatestFrom</strong></h2>
+    <div class="section-content">
+        <p>
+            El operador <strong>combineLatest</strong> junta varios streams de entrada y cada vez que recime un evento emite <br>
+            un array con el último valor de cada entrada.
+        </p>
+        <p>
+            El operador <strong>withLatestFrom</strong> es muy similar pero solo emite datos cuando su stream de origen los emite.
+        </p>
+        <form id="form">
+            <div>
+                <label for="username">Name: </label>
+                <input type="text" name="name" #name>
+            </div>
+            <div>
+                <label for="username">Email: </label>
+                <input type="email" name="email" #email>
+            </div>
+            <div>
+                <label for="username">Phone: </label>
+                <input type="tel" name="phone" #phone>
+            </div>
+            <button id="btn" type="button" #formButton>Add contact</button>
+        </form>
+        <div class="examples-area">
+            <button #button>Click</button>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
