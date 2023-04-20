@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Observable, Subscription, concatMap, from, fromEvent, map, mergeAll, mergeMap, scan, switchMap, tap } from 'rxjs';
-import { IComment, RxjsLessonsService } from '../../services/rxjs-lessons.service';
+import { RxjsLessonsService } from '../../services/rxjs-lessons.service';
 
 @Component({
   selector: 'app-high-order-observables',

@@ -12,6 +12,7 @@ import { UtilidadesComponent } from './pages/utilidades/utilidades.component';
 import { OperadoresTemporalesComponent } from './pages/operadores-temporales/operadores-temporales.component';
 import { CombinacionObservablesComponent } from './pages/combinacion-observables/combinacion-observables.component';
 import { HighOrderObservablesComponent } from './pages/high-order-observables/high-order-observables.component';
+import { UtilidadesAvanzadasComponent } from './pages/utilidades-avanzadas/utilidades-avanzadas.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { HighOrderObservablesComponent } from './pages/high-order-observables/hi
     UtilidadesComponent,
     OperadoresTemporalesComponent,
     CombinacionObservablesComponent,
-    HighOrderObservablesComponent
+    HighOrderObservablesComponent,
+    UtilidadesAvanzadasComponent
   ],
   imports: [
     BrowserModule,

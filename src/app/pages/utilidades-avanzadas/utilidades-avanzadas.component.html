@@ -1,0 +1,65 @@
+<h1>Utilidades avanzadas</h1>
+
+<section class="studying-sections">
+    <h2>1.- Operadores <strong>throwError</strong>, <strong>carthError</strong> y <strong>retry</strong></h2>
+    <div class="section-content">
+        <p>
+            <strong>throwError</strong> es una función que se limita a crear un observable que lanza un error. Una vez que <br>
+            se lanza el error, se cancela la suscripción.
+        </p>
+        <p>
+            Con <strong>catchError</strong> es posible intervenir en el error a nivel de observable. Es decir, antes de que se <br>
+            emita la suscripción y se cierre. Esto nos permite evitar que se cancele la suscripción en caso de error.
+        </p>
+        <p>
+            El operador <strong>retry</strong> nos permite capturar una excepción en el flujo de datos y reintenter su ejecución <br>
+            un número limitado de veces.
+        </p>
+        <div class="examples-area">
+            <button #button>Click me!</button>
+            <div #displayLog></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>2.- constantes <strong>never</strong> y <strong>empty</strong></h2>
+    <div class="section-content">
+        <p>
+            <strong>never</strong> es una función que se devuelve un observable vacío. No emite valor, no lanza error ni se completa. <br>
+        </p>
+        <p>
+            <strong>empty</strong> es una función que se devuelve un observable vacío que, tal y como se lanza, se completa.
+        </p>
+        <div class="examples-area">
+            <button #pauseButton>Pause</button>
+            <button #resumeButton>Resume</button>
+            <div #displayLog style="margin-left: 50px; font-size: 30px;"></div>
+        </div>
+    </div>
+</section>
+<section class="studying-sections">
+    <h2>3.- Eventos y notificaciones: <strong>materialize</strong> y <strong>dematerialize</strong></h2>
+    <div class="section-content">
+        <p>
+            Una notificación de RxJS es un objeto que representa una acción push de un observable
+        </p>
+        <p>
+            <strong>materialize</strong> nos permite emitir notificaciones de cada evento. Nos muestra varios parámetros:
+        </p>
+        <ul>
+            <li><strong>kind</strong> es el tipo de evento. N: Next; C: Completed; E: Error.</li>
+            <li><strong>hasValue</strong> indica si hay valor.</li>
+            <li><strong>value</strong> muestra el valor (si lo hay).</li>
+            <li><strong>error</strong> muestra el error (si lo hay).</li>
+        </ul>
+        <p>
+            <strong>dematerialize</strong> funciona al contrario: recibe eventos en forma de notificaciones y los transforma en <br>
+            acciones sobre el propio observable.
+        </p>
+        <div class="examples-area">
+            <button #pauseButton2>Pause</button>
+            <button #resumeButton2>Resume</button>
+            <div #displayLog style="margin-left: 50px; font-size: 30px;"></div>
+        </div>
+    </div>
+</section>

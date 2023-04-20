@@ -1,5 +1,5 @@
 import { ElementRef, Injectable, QueryList, ViewChildren } from '@angular/core';
-import { BehaviorSubject, Observable, endWith, forkJoin, map, mapTo, timer } from 'rxjs';
+import { BehaviorSubject, Observable, endWith, forkJoin, map, mapTo, mergeMap, of, throwError, timer } from 'rxjs';
 
 export interface IComment {
   id: number;
@@ -71,6 +71,21 @@ export class RxjsLessonsService {
     }
     return timer(Math.random() * 1000).pipe(
       mapTo(buildCommentsList(page))
+    );
+  }
+
+  // Operadores throwError, catchError y retry
+  getCommentError(id: number): Observable<any | Error> {
+    return timer(Math.random() * 1000).pipe(
+      mergeMap((evt: any) => {
+        // const isError = Math.random() > 0.6 ? true : false;
+        const isError = Math.random() > 0.1 ? true : false; // Forzamos a que el error ocurra el 90% de las veces para provocar un bucle infinito y así hacer uso de retry
+        if(isError) {
+          return throwError(new Error('Request Timeout'));
+        } else {
+          return of({ id: id, comment: `comment number ${id}` })
+        }
+      })
     );
   }
 }

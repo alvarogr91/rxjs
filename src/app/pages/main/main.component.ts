@@ -14,5 +14,6 @@ export class MainComponent {
     { title: 'Operadores temporales', route: '/operadores-temporales' },
     { title: 'Combinación de observables', route: '/combinacion-observables' },
     { title: 'High Order Observables', route: '/high-order-observables' },
+    { title: 'Utilidades avanzadas', route: '/utilidades-avanzadas' },
   ]
 }
