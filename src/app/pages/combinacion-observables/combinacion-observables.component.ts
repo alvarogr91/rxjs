@@ -1,4 +1,4 @@
-import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { Observable, Subscription, combineLatest, concat, debounceTime, distinctUntilChanged, endWith, filter, forkJoin, fromEvent, map, mapTo, merge, scan, tap, timer, withLatestFrom, zip } from 'rxjs';
 import { RxjsLessonsService } from 'src/app/services/rxjs-lessons.service';
 
@@ -18,7 +18,7 @@ interface IMouseEventObj {
   styleUrls: ['./combinacion-observables.component.scss']
 })
 
-export class CombinacionObservablesComponent {
+export class CombinacionObservablesComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChildren('displayLog') displayLogs!: QueryList<ElementRef>;
   @ViewChild('canvas') canvas!: ElementRef<HTMLCanvasElement>;
   @ViewChild('button') button!: ElementRef<HTMLElement>;

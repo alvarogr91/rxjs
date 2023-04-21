@@ -42,10 +42,6 @@ export class MainComponent {
     { title: 'Utilidades avanzadas', 
       route: '/utilidades-avanzadas', 
       content: 'throwError, catchError, retry, NEVER, EMPTY, materialize, dematerialize' 
-    },
-    { title: 'Tic Tac Toe', 
-      route: '/tic-tac-toe', 
-      content: '' 
-    },
+    }
   ]
 }

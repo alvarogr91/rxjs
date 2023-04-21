@@ -19,7 +19,7 @@ const routes: Routes = [
   { path: 'operadores-temporales', component: OperadoresTemporalesComponent },
   { path: 'combinacion-observables', component: CombinacionObservablesComponent },
   { path: 'high-order-observables', component: HighOrderObservablesComponent },
-  { path: 'utilidades-avanzadas', component: UtilidadesAvanzadasComponent },
+  { path: 'utilidades-avanzadas', component: UtilidadesAvanzadasComponent }
 ];
 
 @NgModule({

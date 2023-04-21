@@ -24,7 +24,7 @@ import { UtilidadesAvanzadasComponent } from './pages/utilidades-avanzadas/utili
     OperadoresTemporalesComponent,
     CombinacionObservablesComponent,
     HighOrderObservablesComponent,
-    UtilidadesAvanzadasComponent
+    UtilidadesAvanzadasComponent,
   ],
   imports: [
     BrowserModule,
