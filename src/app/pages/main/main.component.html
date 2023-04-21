@@ -1,12 +1,13 @@
 <h1>Curso de programación con RxJS</h1>
 
 <ol class="glossary">
-    <li *ngFor="let data of navigationData">
+    <li *ngFor="let data of mainPageData">
         <div class="li-content">
             <span class="section-title">{{ data.title }}</span>
             <button [routerLink]="data.route">
                 Go!
             </button>
         </div>
+        <p *ngIf="data.content" class="lesson-content">{{ data.content }}</p>
     </li>
 </ol>
